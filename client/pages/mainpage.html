@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product Landing Page</title>
+  <link rel="stylesheet" href="../public/css/style2.css">
+
+  <script src="../public/scripts/script.js" defer></script>
+
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+  <!-- card-item-css -->
+
+  <!-- for cards fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+  <!-- for slider -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
+
+
+
+
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+</head>
+
+<body>
+
+  <!--------------------------------navigationbar-------------------------------------->
+  <nav class="navbar navbar-expand-md navbar-light sticky-top transparent">
+    <div class="container-fluid">
+      <div class="row2">
+        <!-- <div class="col-lg-4 col-sm-12 col-xs-12"> -->
+        <div class="col-4">
+          <div class="logoday2" style="margin-left:-1.2rem;">
+            <!-- <img src="img/logo2.png" alt="" width="90" height="50"> -->
+            <img src="../public/images/logo.jpg" alt="" width="150" height="50">
+
+          </div>
+        </div>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-hidden="true">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active ">
+            <a class="nav-link" href="#Home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#aboutus">AboutUs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Product">Products</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#team">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section class="home-section" id="Home">
+    <div class="home-img">
+      <img src="../public/images/cake3.jpg" alt="img" width="100%" height="50%">
+      <div class="home-text">
+        <h2>Best Cake in the world.</h2>
+        <p>Tastiest Cake you will ever taste.</p>
+
+        <button class="btn" id="myBtn">Order Now</button>
+
+        <!-- the modal -->
+        <div id="myModal" class="modal col-lg-4 col-md-4 col-md-3 align-self-end">
+
+          <div class="modal-content" id="modalArea">
+            <!-- <span class="close">&times;</span> -->
+            <form>
+              <div class="mb-2">
+                <span class="close">&times;</span>
+
+                <input type="text" class="form-control" id="recipient-name" placeholder="name">
+                <input type="text" class="form-control" id="recipient-contact" placeholder="contact">
+
+                <input type="text" class="form-control" id="recipient-email" placeholder="email">
+                <input type="text" class="form-control" id="recipient-pincode" placeholder="Pincode">
+
+              </div>
+              <div class="mb-2">
+                <label for="message-text" class="col-form-label">Cake Details:</label>
+                <textarea class="form-control" id="message-text" placeholder="Cake Flavour,Type etc."></textarea>
+                <button class="btn" id="myBtn">Submit</button>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
+  <section class="cake-item">
+    <div class="about-container">
+      <div class="about">
+        <h2>Order Cakes Online for All Your Relatives and Friends</h2>
+        <div class="row padding">
+          <div class="col-6 col-md-4 mt-5 about-img"><img src="../public/images/logo2.jpg" alt="image" width="80%"></div>
+
+          <div class="col-12 col-md-8 mt-2 about_para ">
+            <p>Discover the joy of surprising your loved ones with our delectable cakes. Whether it's a birthday, anniversary, or any special occasion, we have the perfect cake to make it unforgettable. Send a delightful designer cake to your distant relative in Bhopal and bring a smile to their face. Our online cake delivery service ensures a hassle-free experience, allowing you to spread happiness with every slice. Explore our diverse range of cakes and make any moment truly special and unique.</p>
+          </div>
+
+
+          <div class="container1" style="margin-top: 4rem;">
+
+              <div class="number col-md-3">
+                <button class="call-btn "><span><img src="../public/images/call.png" alt="image" width="50px" height="50px"></span><strong>+91-0754545100*</strong></button>
+              </div>
+
+              <div class="cont_text col-md-7">
+                <h2>Let's Build your dream Cake</h2>
+
+              </div>
+              <div class="column-left" id="column-left">
+                <img src="../public/images/logo3.jpg" alt="image" width="50%" height="">
+              </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="container2" id="Product">
+      <div class="row gy-3 my-3">
+        <div class="hir col-sm-6 col-md-4 col-lg-3">
+          <div class="card" style="border:0.5px solid #b8b894;">
+            <img src="../public/images/cake1.jpg" class="card-img-top" alt="image">
+            <div class="card-body">
+              <p>Toothsome Chocolate Cake</b></p>
+              <p class="card-text">659</p>
+              <p>Earliest delivery:<strong>Today</strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="hir col-sm-6 col-md-4 col-lg-3">
+          <div class="card" style="border:0.5px solid #b8b894;">
+            <img src="../public/images/cake2.jpg" class="card-img-top" alt="image">
+            <div class="card-body">
+              <p>Amazing Black Forest Cake</b></p>
+              <p class="card-text">549(15% off)</p>
+              <p>Earliest Delivery:<strong>Today</strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="hir col-sm-6 col-md-4 col-lg-3">
+          <div class="card" style="border:0.5px solid #b8b894;">
+            <img src="../public/images/cake3.jpg" class="card-img-top" alt="image">
+            <div class="card-body">
+              <p>Delicious Butterscotch Cake</b></p>
+              <p class="card-text">459</p>
+              <p>Earliest Delivery:<strong>Today</strong></p>
+            </div>
+          </div>
+        </div>
+        
+
+
+      </div>
+    </div>
+    <div id="load-more" class="load-more">View Full Menu</div>
+    </div>
+
+  </section>
+  <section id="slider-section">
+    <div class="slider">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="slider_container">
+              <div class="slider_title_container">
+                <h3 class="slider_title">Best Cake Item</h3>
+                <div class="nav_container">
+                  <div class="slider_nav slider_prev"><i class="fas fa-chevron-left"></i></div>
+                  <div class="slider_nav slider_next"><i class="fas fa-chevron-right"></i></div>
+                </div>
+              </div>
+              <div class="slider_container2">
+                <div class="owl-carousel owl-theme bbb_viewed_slider">
+                  <div class="owl-item">
+                    <div class="slider_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                      <div class="slider_image"><img src="../public/images/cake1.jpg" alt=""></div>
+                      <div class="slider_content text-center">
+                        <div class="cake_price">₹599<span>₹999</span></div>
+                        <div class="cake_name"><a href="#">chocolate cake</a></div>
+                      </div>
+                      <ul class="item_marks">
+                        <li class="item_mark item_discount">-25%</li>
+                        <li class="item_mark item_new">new</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="owl-item">
+                    <div class="slider_item d-flex flex-column align-items-center justify-content-center text-center">
+                      <div class="slider_image"><img src="../public/images/cake2.jpg" alt=""></div>
+                      <div class="slider_content text-center">
+                        <div class="cake_price">₹30079</div>
+                        <div class="cake_name"><a href="#">Fruit Cake</a></div>
+                      </div>
+                      <ul class="item_marks">
+                        <li class="item_mark item_discount">-25%</li>
+                        <li class="item_mark item_new">new</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="owl-item">
+                    <div class="slider_item d-flex flex-column align-items-center justify-content-center text-center">
+                      <div class="slider_image"><img src="../public/images/cake3.jpg" alt=""></div>
+                      <div class="slider_content text-center">
+                        <div class="cake_price">₹1250</div>
+                        <div class="cake_name"><a href="#">Pinata Cake</a></div>
+                      </div>
+                      <ul class="item_marks">
+                        <li class="item_mark item_discount">-25%</li>
+                        <li class="item_mark item_new">new</li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section>
+    <div class="cont-background" id="contact">
+      <div class="cont-container">
+        <div class="row" style="justify-content:space-around;">
+          <div class="col-md-4 ">
+            <div class="contact-section1">
+              <p>HI Friends..... We make delicious, tasty,100%pure, Hygienic Cakes for Every occasions i.e.Birthday,Anniversary,Marriage Party,Weddings and Kitty Parties.</p>
+              <p>We also make Special cookies and cakes for sick and diet conscious people on special requirement.</p>
+              <p>Our cakes are 100% homemade and contains no harmful chemicals and colours.</p>
+              <p>Home Delivery also available.</p>
+              <p>Come and take your first bite.</p>
+              <p>For more details Contact us.</p>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="cont-screen">
+              <div class="cont-header">
+                <div class="cont-header-left">
+                  <div class="cont-header-button maximize"></div>
+                  <div class="cont-header-button minimize"></div>
+                  <div class="cont-header-button close"></div>
+                </div>
+                <div class="cont-header-right">
+                  <div class="cont-header-ellipsis"></div>
+                  <div class="cont-header-ellipsis"></div>
+                  <div class="cont-header-ellipsis"></div>
+                </div>
+              </div>
+              <div class="cont-body">
+                <div class="cont-body-item left">
+                  <div class="app-title">
+                    <p>Contact</p>
+                    <p>Us...</p>
+                  </div>
+                  <!-- <div class="app-contact">CONTACT INFO : 8718048503</div> -->
+                  <div class="app-contact">
+                    <h4>Address : 203 Anand Nagar Bhopal(M.P)</h4>
+                    <p>CONTACT INFO : 8718048503</p>
+                  </div>
+                </div>
+                <div class="cont-body-item">
+                  <div class="app-form">
+                    <div class="app-form-group">
+                      <input class="app-form-control" placeholder="Name">
+                    </div>
+                    <div class="app-form-group">
+                      <input class="app-form-control" placeholder="Email">
+                    </div>
+                    <div class="app-form-group">
+                      <input class="app-form-control" placeholder="Contact N0.">
+                    </div>
+                    <div class="app-form-group message">
+                      <input class="app-form-control" placeholder="Message">
+                    </div>
+                    <div class="app-form-group buttons">
+                      <!-- <button class="app-form-button">CANCEL</button> -->
+                      <button class="app-form-button">SUBMIT</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="content">
+      <div class="left box">
+        <div class="upper">
+          <div class="topic">About us</div>
+          <p>We make delicious, tasty,100%pure, Hygienic Cakes for Every occasions.</p>
+        </div>
+        <div class="lower">
+          <div class="topic">Contact us</div>
+          <div class="topic-name">
+            <a href="#"><i class="fas fa-phone-volume"></i> +8718048503</a>
+          </div>
+          <div class="topic-name">
+            <a href="#"><i class="fas fa-envelope"></i> deepshikha2000deep@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="middle box">
+        <div class="topic">Our Services</div>
+        <div class="topic-name"><a href="#">Birthday Cakes</a></div>
+        <div class="topic-name"><a href="#">Anniversary Cakes</a></div>
+        <div class="topic-name"><a href="#">Wedding Ceremony Cakes</a></div>
+        <div class="topic-name"><a href="#">Kitty Parties Cake</a></div>
+        <div class="topic-name"><a href="#">Event Organizer</a></div>
+        <div class="topic-name"><a href="#">Customized Party Planner</a></div>
+      </div>
+      <div class="right box">
+        <div class="topic">Subscribe us</div>
+        <form action="#">
+          <input type="text" placeholder="Enter email address">
+          <input type="submit" name="" value="Send">
+          <div class="media-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <p>Copyright © 2022 <a href="#">Cake Bake</a> All rights reserved</p>
+    </div>
+  </footer>
+
+
+
+</body>
+
+</html>

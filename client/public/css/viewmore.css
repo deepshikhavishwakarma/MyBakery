@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.search {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fcc6e0;
+}
+
+.search h2{
+    color: #e81260;
+    font-family: 'pacifico', cursive;
+}
+
+.search input {
+    width: 40%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 0px solid red;
+}
+
+.search input:focus {
+    outline: #c90d52;
+}
+
+.cakearea {
+    padding: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+    /* background-color: #f2dde7; */
+}
+
+.card {
+    background-color: #f6b8cf;
+    scale: 90%;
+}
+
+.price-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-btn p {
+    font-size: 2rem;
+    color: #570505;
+    font-weight: bold;
+}
+
+.last-text h3 {
+    text-align: center;
+    font-size: 1rem;
+    color: #c90d52;
+}
