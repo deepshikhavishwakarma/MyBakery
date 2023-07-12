@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const cakeSchema = new mongoose.Schema({
-    CakeName: { type: String, required: true },
+    CakeName: { type: String, unique:true , required: true },
     CakeThumbNailImage: { type: String, required: true },
     ImagePaths: [{ type: String, required: true }],
     CakeDescription: { type: String, required:true },
