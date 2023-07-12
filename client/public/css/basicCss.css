@@ -1,0 +1,54 @@
+html,
+body {
+    margin: 0;
+}
+
+.main-content {
+    display: flex;
+}
+
+.right-side {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    border: 2px solid blue;
+}
+
+.right-top {
+    height: 10%;
+    border: 2px solid green;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.right-bottom{
+    padding: 1rem;
+}
+
+a {
+    background-color: aqua;
+    text-decoration: none;
+    margin: 10px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th{
+    background-color: blanchedalmond;
+}
+
+form{
+    border: 2px solid rgb(28, 234, 124);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 1rem 0;
+}
