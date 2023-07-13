@@ -6,70 +6,113 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin</title>
   <link rel="stylesheet" href="../css/basicCss.css">
+  <script src="../scripts/adminfront.js"></script>
 </head>
 
 <body>
   <div class="main-content">
     <div class="right-side">
       <div class="right-top">
-        <a href="/admin/orders">Orders</a>
-        <a href="/admin/addCake">Add new cake</a>
-        <a href="/admin/updateCake">update cake</a>
-        <a href="/admin/earnings">earnings</a>
-        <a href="/logout">logout</a>
+        <button type="button" onclick="refresh()">Refresh Page</button>
+        <button type="button" onclick="showOrders()">Orders</button>
+        <button type="button" onclick="createnewCake()">Add Cake</button>
+        <button type="button" onclick="updateCake()">Update Cake</button>
+        <button type="button" onclick="showEarnings()">View Earnings</button>
+        <button type="button">Logout</button>
       </div>
       <div class="right-bottom">
 
-        <table style="width:100%">
-          <tr>
-            <th>Customer Name</th>
-            <th>CakeID</th>
-            <th>Cake Name</th>
-            <th>OrderID</th>
-            <th>Address</th>
-            <th>Contact Number</th>
-            <th>Order Status</th>
-            <th>Mark Competed</th>
-          </tr>
-          <tr>
-            <td>Alfreds Futterkiste</td>
-            <td>Maria Anders</td>
-            <td>Germany</td>
-            <td>Germany</td>
-            <td>Germany</td>
-            <td>Germany</td>
-            <td>Germany</td>
-            <td><a href="">mark</a></td>
-          </tr>
-        </table>
+        <div id="orders">
 
-        <form action="/admin/CreateCakes" method="POST" enctype="multipart/form-data">
-          <label for="cakeName">Cake Name:</label>
-          <input type="text" id="cakeName" name="cakeName" required placeholder="Enter the cake name">
+          <table style="width:100%">
+            <tr>
+              <th>Customer Name</th>
+              <th>CakeID</th>
+              <th>Cake Name</th>
+              <th>OrderID</th>
+              <th>Address</th>
+              <th>Contact Number</th>
+              <th>Order Status</th>
+              <th>Mark Competed</th>
+              <th>Cancel</th>
+            </tr>
+            <tr>
+              <td>Alfreds Futterkiste</td>
+              <td>Maria Anders</td>
+              <td>Germany</td>
+              <td>Germany</td>
+              <td>Germany</td>
+              <td>Germany</td>
+              <td>Germany</td>
+              <td><a href="">mark</a></td>
+              <td><a href="">cancel</a></td>
+            </tr>
+          </table>
+        </div>
 
-          <label for="cakeDescription">Cake Description:</label>
-          <input type="text" id="cakeDescription" name="cakeDescription" required placeholder="Enter the cake description">
+        <div id="createCake">
+          <form action="/admin/CreateCakes" method="POST" enctype="multipart/form-data">
+            <label for="cakeName">Cake Name:</label>
+            <input type="text" id="cakeName" name="cakeName" required placeholder="Enter the cake name">
 
-          <label for="cakeSugarAmount">Cake Sugar Amount:</label>
-          <input type="number" id="cakeSugarAmount" name="cakeSugarAmount" required placeholder="Enter the sugar amount">
+            <label for="cakeDescription">Cake Description:</label>
+            <input type="text" id="cakeDescription" name="cakeDescription" required placeholder="Enter the cake description">
 
-          <label for="cakeType">Cake Type:</label>
-          <input type="text" id="cakeType" name="cakeType" required placeholder="Enter the cake type">
+            <label for="cakeSugarAmount">Cake Sugar Amount:</label>
+            <input type="number" id="cakeSugarAmount" name="cakeSugarAmount" required placeholder="Enter the sugar amount">
 
-          <label for="price">Price:</label>
-          <input type="number" id="price" name="price" required placeholder="Enter the cake price">
+            <label for="cakeType">Cake Type:</label>
+            <input type="text" id="cakeType" name="cakeType" required placeholder="Enter the cake type">
 
-          <label for="discount">Discount:</label>
-          <input type="number" id="discount" name="discount" required placeholder="Enter the discount">
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" required placeholder="Enter the cake price">
 
-          <label for="thumbnailImage">Thumbnail Image:</label>
-          <input type="file" id="thumbnailImage" name="thumbnailImage" required>
+            <label for="discount">Discount:</label>
+            <input type="number" id="discount" name="discount" required placeholder="Enter the discount">
 
-          <label for="imagePaths">Carousel Images:</label>
-          <input type="file" id="imagePaths" name="imagePaths" multiple required>
+            <label for="thumbnailImage">Thumbnail Image:</label>
+            <input type="file" id="thumbnailImage" name="thumbnailImage" required>
 
-          <button type="submit">Create Cake</button>
-        </form>
+            <label for="imagePaths">Carousel Images:</label>
+            <input type="file" id="imagePaths" name="imagePaths" multiple required>
+
+            <button type="submit">Create Cake</button>
+          </form>
+        </div>
+
+        <div id="updateCake">
+          <form action="">
+            <label for="cakeName">Enter cake name:</label>
+            <input type="text" id="cakeName" name="cakeName" required><br>
+
+            <label for="sugarAmount">Update sugar amount:</label>
+            <input type="number" id="sugarAmount" name="sugarAmount" required><br>
+
+            <label for="price">Update price:</label>
+            <input type="number" id="price" name="price" required><br>
+
+            <label for="discount">Update discount:</label>
+            <input type="number" id="discount" name="discount" required><br>
+
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+
+
+        <div id="earnings">
+          <div class="blocks">
+            <h1>Total sales</h1>
+            <p>1500 units</p>
+          </div>
+          <div class="blocks">
+            <h1>sales amount</h1>
+            <p>Rs 100000</p>
+          </div>
+          <div class="blocks">
+            <h1>Profit</h1>
+            <p>Rs 50000</p>
+          </div>
+        </div>
 
       </div>
     </div>

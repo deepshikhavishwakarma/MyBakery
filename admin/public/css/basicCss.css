@@ -1,6 +1,7 @@
 html,
 body {
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .main-content {
@@ -11,23 +12,22 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
     border: 2px solid blue;
 }
 
 .right-top {
-    height: 10%;
     border: 2px solid green;
     display: flex;
     justify-content: right;
     align-items: center;
+    padding: 1rem;
 }
 
 .right-bottom{
     padding: 1rem;
 }
 
-a {
+button {
     background-color: aqua;
     text-decoration: none;
     margin: 10px;
@@ -44,11 +44,71 @@ th{
     background-color: blanchedalmond;
 }
 
+#orders{
+    width: 100%;
+}
+
+#createCake{
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
 form{
-    border: 2px solid rgb(28, 234, 124);
+    /* border: 2px solid rgb(28, 234, 124); */
     padding: 1rem;
     display: flex;
     flex-direction: column;
     width: 50%;
     margin: 1rem 0;
+    border-radius: 1rem;
+    background-color: pink;
+}
+
+form input{
+    padding: 0.5rem;
+    margin: 10px;
+}
+
+#earnings{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blocks{
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+    width: 33%;
+    background-color: #f3f5c5;
+    border-radius: 1rem;
+}
+
+#earnings{
+    display: none;
+}
+
+.blocks h1{
+    width: 100%;
+    background-color: brown;
+    color: white;
+    margin: 0;
+    border-radius: 1rem 1rem 0 0;
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+.blocks p{
+    font-size: 1.5rem;
+    color: #210c75;
+}
+
+#updateCake{
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
