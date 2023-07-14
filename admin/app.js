@@ -13,13 +13,13 @@ const app = express();
 
 //----------------------------------------------------------------------//
 
-const locale = "mongodb://localhost:27017/cakeDB";
+const locale = "mongodb+srv://Deep:Mongo@cluster0.lqjmayx.mongodb.net/MyBakery";
 
 mongoose.connect(locale, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("successfully connected to your MongoDB database."))
     .catch((error) => {
         console.log(error)
-        res.render("errorPage", { code: "503", message: "SERVICE UNAVAILABLE" });
+        // res.render("errorPage", { code: "503", message: "SERVICE UNAVAILABLE" });
     })
 
 
