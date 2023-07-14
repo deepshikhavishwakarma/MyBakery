@@ -38,6 +38,7 @@ router.post('/admin/CreateCakes', upload.fields([
         CakeDescription: req.body.cakeDescription,
         CakeSugarAmount: req.body.cakeSugarAmount,
         CakeType: req.body.cakeType,
+        CakeSpeciality: req.body.cakeSpeciality,
         Price: req.body.price,
         Discount: req.body.discount,
     });

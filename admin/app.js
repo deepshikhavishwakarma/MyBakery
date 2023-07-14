@@ -17,7 +17,7 @@ const locale = "mongodb+srv://Deep:Mongo@cluster0.lqjmayx.mongodb.net/MyBakery";
 
 mongoose.connect(locale, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("successfully connected to your MongoDB database."))
-    .catch((error) => {
+    .catch((error, req, res) => {
         console.log(error)
         // res.render("errorPage", { code: "503", message: "SERVICE UNAVAILABLE" });
     })
