@@ -1,0 +1,31 @@
+// ...
+
+router.post('/addToCart/:cakeId', (req, res) => {
+  const { cakeId } = req.params;
+  const { quantity } = req.body;
+
+  Cake.findById(cakeId)
+    .then((cake) => {
+      if (!cake) {
+        res.status(404).send('Cake not found');
+        return;
+      }
+
+      // Create a new cart item with the cakeId and quantity
+      const cartItem = {
+        cakeId,
+        quantity,
+      };
+
+      // Add the cart item to the session
+      req.session.cart = req.session.cart || []; // Initialize cart if it doesn't exist
+      req.session.cart.push(cartItem);
+
+      res.send('Cake added to cart successfully!');
+    })
+    .catch((error) => {
+      // Handle error
+    });
+});
+
+// ...
