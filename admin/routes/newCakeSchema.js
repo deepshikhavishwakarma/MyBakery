@@ -7,7 +7,7 @@ const cakeSchema = new mongoose.Schema({
     CakeDescription: { type: String, required:true },
     CakeSugarAmount: { type: Number, required:true },
     CakeType: { type: String, required:true },
-    CakeSpeciality: { type: Date, default: Date.now },
+    CakeSpeciality: { type: String, required:true },
     Price: { type: Number, required:true },
     Discount: { type: Number, required:true, default:0 }
 })
