@@ -3,8 +3,13 @@ const session = require("express-session");
 const router = express.Router();
 const multer = require('multer');
 
-router.get("/", (req, res) => {
-    res.render('adminPage');
+router.get("/admin/dashboard", (req, res) => {
+    // console.log(req.session.isAuth);
+    if(!req.session.isAuth){
+        res.redirect("/");
+    }else{
+        res.render('adminPage');
+    }
 })
 //---------------------------------------------//
 
