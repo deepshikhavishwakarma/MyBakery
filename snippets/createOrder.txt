@@ -1,0 +1,50 @@
+const express = require('express');
+const router = express.Router();
+
+const Order = require("./orderSchema");
+
+// ...
+
+router.post('/createOrder', (req, res) => {
+  const cartItems = req.session.cart || [];
+
+  // Create an order for each cart item and save it in the database
+  const orderPromises = cartItems.map((cartItem) => {
+    const { cakeId, quantity } = cartItem;
+
+    // Retrieve the cake details from the Cake model
+    return Cake.findById(cakeId)
+      .then((cake) => {
+        if (!cake) {
+          throw new Error('Cake not found');
+        }
+
+        // Create a new order based on the cart item and cake details
+        const newOrder = new Order({
+          CustomerName: req.body.customerName,
+          Cake_id: cakeId,
+          CakeName: cake.CakeName,
+          OrderValue: cake.Price * quantity,
+          SpecialDemands: req.body.specialDemands,
+          DeliveryAddress: req.body.deliveryAddress,
+          ContactNumber: req.body.contactNumber,
+          OrderStatus: 'pending',
+        });
+
+        return newOrder.save();
+      });
+  });
+
+  // Wait for all the orders to be created and saved
+  Promise.all(orderPromises)
+    .then(() => {
+      // Clear the cart after creating the orders
+      req.session.cart = [];
+      res.send('Orders created successfully!');
+    })
+    .catch((error) => {
+      res.status(500).send('Error creating orders: ' + error);
+    });
+});
+
+// ...

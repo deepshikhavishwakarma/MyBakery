@@ -37,6 +37,13 @@ app.use(express.static('public'));
 
 //--------------------- our stuff -------------------------------//
 
+app.get("/", (req, res) => {
+    res.render("login");
+})
+
+const auth = require("./routes/adminAuth");
+app.use(auth);
+
 const adminCake = require("./routes/adminCake");
 app.use(adminCake);
 

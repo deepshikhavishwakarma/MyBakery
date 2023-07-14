@@ -1,0 +1,44 @@
+const fs = require('fs');
+const path = require('path');
+
+router.delete('/admin/DeleteCake/:cakeId', (req, res) => {
+  const cakeId = req.params.cakeId;
+
+  Cake.findByIdAndDelete(cakeId, (err, deletedCake) => {
+    if (err) {
+      res.status(500).send('Error deleting cake: ' + err);
+    } else {
+      if (!deletedCake) {
+        res.status(404).send('Cake not found');
+        return;
+      }
+
+      // Delete the associated image files
+      const thumbnailImagePath = deletedCake.CakeThumbNailImage;
+      const carouselImagePaths = deletedCake.ImagePaths;
+
+      // Delete the thumbnail image file
+      if (thumbnailImagePath) {
+        const thumbnailImageFilePath = path.join('../client/public', thumbnailImagePath);
+        fs.unlink(thumbnailImageFilePath, (err) => {
+          if (err) {
+            console.log('Error deleting thumbnail image:', err);
+          }
+        });
+      }
+
+      // Delete the carousel image files
+      carouselImagePaths.forEach((imagePath) => {
+        const carouselImageFilePath = path.join('../client/public', imagePath);
+        fs.unlink(carouselImageFilePath, (err) => {
+          if (err) {
+            console.log('Error deleting carousel image:', err);
+          }
+        });
+      });
+
+      res.send('Cake deleted successfully!');
+    }
+  });
+});
+
