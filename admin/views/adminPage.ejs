@@ -7,25 +7,28 @@
   <title>Admin</title>
   <link rel="stylesheet" href="../css/basicCss.css">
   <script src="../scripts/adminfront.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <div class="main-content">
     <div class="right-side">
       <div class="right-top">
-        <button type="button" onclick="refresh()">Refresh Page</button>
-        <button type="button" onclick="showOrders()">Orders</button>
-        <button type="button" onclick="createnewCake()">Add Cake</button>
-        <button type="button" onclick="updateCake()">Update Cake</button>
-        <button type="button" onclick="showEarnings()">View Earnings</button>
-        <button type="button">Logout</button>
+        <button type="button" class="btn btn-success" style="margin: 0 0.5rem;" onclick="refresh()">Refresh Page</button>
+        <button type="button" class="btn btn-info" style="margin: 0 0.5rem;" onclick="showOrders()">Orders</button>
+        <button type="button" class="btn btn-primary" style="margin: 0 0.5rem;" onclick="createnewCake()">Add Cake</button>
+        <button type="button" class="btn btn-primary" style="margin: 0 0.5rem;" onclick="updateCake()">Update/View Cakes</button>
+        <button type="button" class="btn btn-primary" style="margin: 0 0.5rem;" onclick="showEarnings()">View Earnings</button>
+        <button type="button" class="btn btn-danger" style="margin: 0 0.5rem;">Logout</button>
       </div>
       <div class="right-bottom">
 
         <div id="orders">
 
-          <table style="width:100%">
-            <tr>
+          <table style="width:100%" class="table">
+            <tr class="table-info">
               <th>Customer Name</th>
               <th>CakeID</th>
               <th>Cake Name</th>
@@ -44,58 +47,102 @@
               <td>Germany</td>
               <td>Germany</td>
               <td>Germany</td>
-              <td><a href="">mark</a></td>
-              <td><a href="">cancel</a></td>
+              <td><a href="" class="btn btn-success">mark</a></td>
+              <td><a href="" class="btn btn-danger">cancel</a></td>
             </tr>
           </table>
         </div>
 
         <div id="createCake">
+          <h1>Add a new Cake to the inventory.</h1>
           <form action="/admin/CreateCakes" method="POST" enctype="multipart/form-data">
-            <label for="cakeName">Cake Name:</label>
-            <input type="text" id="cakeName" name="cakeName" required placeholder="Enter the cake name">
 
-            <label for="cakeDescription">Cake Description:</label>
-            <input type="text" id="cakeDescription" name="cakeDescription" required placeholder="Enter the cake description">
+            <div class="form-left">
+              <label for="cakeName">Cake Name:</label>
+              <input type="text" id="cakeName" name="cakeName" required placeholder="Enter the cake name">
+  
+              <label for="cakeDescription">Cake Description:</label>
+              <textarea id="cakeDescription" name="cakeDescription" required placeholder="Enter the cake description"> </textarea>
+  
+              <label for="cakeSugarAmount">Cake Sugar Amount (g) :</label>
+              <input type="number" id="cakeSugarAmount" name="cakeSugarAmount" required placeholder="Enter the sugar amount">
+  
+              <label for="cakeType">Cake Type:</label>
+              <input type="text" id="cakeType" name="cakeType" required placeholder="Enter the cake type">
+  
+              <label for="price">Price:</label>
+              <input type="number" id="price" name="price" required placeholder="Enter the cake price">
+            </div>
 
-            <label for="cakeSugarAmount">Cake Sugar Amount:</label>
-            <input type="number" id="cakeSugarAmount" name="cakeSugarAmount" required placeholder="Enter the sugar amount">
+            <div class="form-right">
+              <label for="discount">Discount:</label>
+              <input type="number" id="discount" name="discount" required placeholder="Enter the discount">
 
-            <label for="cakeType">Cake Type:</label>
-            <input type="text" id="cakeType" name="cakeType" required placeholder="Enter the cake type">
+              <label for="cakeDescription">Something Special:</label>
+              <textarea id="cakeDescription" name="cakeSpeciality" required placeholder="Enter anyting special about the cake."> </textarea>
+  
+              <label for="thumbnailImage">Thumbnail Image:</label>
+              <input class="btn btn-danger" type="file" id="thumbnailImage" name="thumbnailImage" required>
+  
+              <label for="imagePaths">Carousel Images:</label>
+              <input class="btn btn-danger" type="file" id="imagePaths" name="imagePaths" multiple required>
+  
+              <button type="submit" class="btn btn-primary">Create Cake</button>
+            </div>
 
-            <label for="price">Price:</label>
-            <input type="number" id="price" name="price" required placeholder="Enter the cake price">
-
-            <label for="discount">Discount:</label>
-            <input type="number" id="discount" name="discount" required placeholder="Enter the discount">
-
-            <label for="thumbnailImage">Thumbnail Image:</label>
-            <input type="file" id="thumbnailImage" name="thumbnailImage" required>
-
-            <label for="imagePaths">Carousel Images:</label>
-            <input type="file" id="imagePaths" name="imagePaths" multiple required>
-
-            <button type="submit">Create Cake</button>
           </form>
         </div>
 
+        <!--Update cake-->
+
         <div id="updateCake">
-          <form action="">
-            <label for="cakeName">Enter cake name:</label>
-            <input type="text" id="cakeName" name="cakeName" required><br>
-
-            <label for="sugarAmount">Update sugar amount:</label>
-            <input type="number" id="sugarAmount" name="sugarAmount" required><br>
-
-            <label for="price">Update price:</label>
-            <input type="number" id="price" name="price" required><br>
-
-            <label for="discount">Update discount:</label>
-            <input type="number" id="discount" name="discount" required><br>
-
-            <input type="submit" value="Submit">
-          </form>
+          <table class="table">
+            <tr class="table-info">
+              <th>CakeID</th>
+              <th>Cake Name</th>
+              <th>Cake description</th>
+              <th>Cake sygar amount</th>
+              <th>Cake type</th>
+              <th>Speciality</th>
+              <th>Cake Price</th>
+              <th>Discount</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+            <tr>
+              <td>Alfreds Futterkiste</td>
+              <td>
+                Maria Anders
+                <input type="text">
+              </td>
+              <td>
+                Maria Anders
+                <input type="text">
+              </td>
+              <td>
+                Maria Anders
+                <input type="text">
+              </td>
+              <td>
+                Maria Anders
+                <input type="text">
+              </td>
+              <td>
+                Maria Anders
+                <input type="text">
+              </td>
+              <td>
+                Maria Anders
+                <input type="text">
+              </td>
+              <td>
+                Maria Anders
+                <input type="text">
+              </td>
+              <td><a href="" class="btn btn-success">Update</a></td>
+              <td><a href="" class="btn btn-danger">delete</a></td>
+            </tr>
+          </table>
         </div>
 
 
