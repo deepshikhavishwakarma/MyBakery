@@ -5,6 +5,7 @@
     background-color: #e0537e;
     padding: 1rem;
     width: 100%;
+    /* position: fixed; */
   }
   
   .nav-item active {

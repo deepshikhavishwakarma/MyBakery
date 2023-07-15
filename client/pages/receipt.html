@@ -2,94 +2,102 @@
 <html>
 <head>
   <title>Cake Bakery Receipt</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <link rel='stylesheet' type='text/css' media='screen' href='../public/css/style2.css'>
-  <!-- Custom CSS -->
-  <style>
-    body {
-      margin: 0px;
-    }
-    .receipt {
-      border: 2px solid #ccc;
-      padding: 20px;
-      /* max-width: 400px; */
-      max-width: 66rem;
-      margin: 5rem auto;
-      font-family: Arial, sans-serif;
-    }
-    .receipt h1 {
-      text-align: center;
-    }
-    .receipt .info {
-      margin-bottom: 20px;
-    }
-    .receipt .info span {
-      font-weight: bold;
-    }
-    .receipt table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-    .receipt table th, .receipt table td {
-      border: 1px solid #ccc;
-      padding: 8px;
-    }
-    .receipt table th {
-      text-align: left;
-      background-color: #f2f2f2;
-    }
-    .receipt .total {
-      margin-top: 20px;
-      text-align: right;
-      font-weight: bold;
-    }
-    .receipt .btn-download {
-      text-align: center;
-      margin-top: 20px;
-      /* background-color: blueviolet; */
-    }
-  </style>
+   <!-- for footer fontawesome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <link rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+<link rel='stylesheet' type='text/css' media='screen'
+  href='../public/css/navbar.css'>
+<link rel='stylesheet' type='text/css' media='screen'
+  href='../public/css/footer.css'>
 </head>
+<style>
+  body {
+    margin: 0px;
+  }
+  .receipt {
+    border: 2px solid #ccc;
+    padding: 20px;
+    /* max-width: 400px; */
+    max-width: 66rem;
+    margin: 5rem auto;
+    font-family: Arial, sans-serif;
+  }
+  .receipt h1 {
+    text-align: center;
+  }
+  .receipt .info {
+    margin-bottom: 20px;
+  }
+  .receipt .info span {
+    font-weight: bold;
+  }
+  .receipt table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  .receipt table th, .receipt table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+  }
+  .receipt table th {
+    text-align: left;
+    background-color: #f2f2f2;
+  }
+  .receipt .total {
+    margin-top: 20px;
+    text-align: right;
+    font-weight: bold;
+  }
+  .receipt .btn-download {
+    text-align: center;
+    margin-top: 20px;
+    /* background-color: blueviolet; */
+  }
+</style>
 <body>
-    <nav class="navbar navbar-expand-md navbar-light sticky-top transparent">
-        <div class="container-fluid">
-            <div class="row2">
-                                <!-- <div class="col-lg-4 col-sm-12 col-xs-12"> -->
-                          <div class="col-4">
-                                    <div class="logoday2" style="margin-left:-1.2rem;">
-                                        <!-- <img src="img/logo2.png" alt="" width="90" height="50"> -->
-                          <img src="../public/images/img/cbbb.png" alt="" width="150" height="50">
-    
-                                    </div>
-                                </div>
-                            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-hidden="true">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                   <li class="nav-item active ">
-                        <a class="nav-link" href="#Home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#aboutus">AboutUs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#Product">Products</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="#team">Team</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
+  <nav class="navbar navbar-expand-md navbar-light sticky-top transparent">
+    <div class="container-fluid">
+        <div class="row2">
+            <!-- <div class="col-lg-4 col-sm-12 col-xs-12"> -->
+            <div class="col-4">
+                <div class="logoday2" style="margin-left:-1.2rem;">
+                    <!-- <img src="img/logo2.png" alt="" width="90" height="50"> -->
+                    <img src="../public/images/img/cbbb.png" alt
+                        width="150" height="50">
+
+                </div>
             </div>
         </div>
-    </nav>
+        <button class="navbar-toggler" type="button"
+            data-toggle="collapse" data-target="#navbarResponsive"
+            aria-hidden="true">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active ">
+                    <a class="nav-link" href="#Home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#aboutus">AboutUs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Product">Products</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#team">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
   <div class="receipt">
     <h1>Order Invoice</h1>
     <div class="info">
@@ -115,6 +123,57 @@
         <button class="btn" onclick="downloadReceipt()">Download Receipt</button>
       </div>
   </div>
+
+  <footer>
+    <div class="content">
+        <div class="left box">
+            <div class="upper">
+                <div class="topic">About us</div>
+                <p>We make delicious, tasty,100%pure, Hygienic Cakes for
+                    Every occasions.</p>
+            </div>
+            <div class="lower">
+                <div class="topic">Contact us</div>
+                <div class="topic-name">
+                    <a href="#"><i class="fa-solid fa-phone"></i>
+                        &nbsp;&nbsp;+45267428723</a>
+                </div>
+                <div class="topic-name">
+                    <a href="#"><i class="fas fa-envelope"></i>
+                      &nbsp;&nbsp;deepshikha2000deep@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="middle box">
+            <div class="topic">Our Services</div>
+            <div class="topic-name"><a href="#">Birthday Cakes</a></div>
+            <div class="topic-name"><a href="#">Anniversary Cakes</a></div>
+            <div class="topic-name"><a href="#">Wedding Ceremony Cakes</a></div>
+            <div class="topic-name"><a href="#">Kitty Parties Cake</a></div>
+            <div class="topic-name"><a href="#">Event Organizer</a></div>
+            <div class="topic-name"><a href="#">Customized Party Planner</a></div>
+        </div>
+        <div class="right box">
+            <div class="topic">Subscribe us</div>
+            <form action="#">
+                <input type="text" placeholder="Enter email address">
+                <input type="submit" name value="Send">
+                <div class="media-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <p>Copyright © 2022 <a href="#">Cake Bake</a> All rights
+            reserved</p>
+    </div>
+</footer>
 
   <!-- Bootstrap JS and jQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

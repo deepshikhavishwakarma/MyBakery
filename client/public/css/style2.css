@@ -1363,13 +1363,7 @@ label {
 
 
 
-footer {
-  width: 100%;
-  position: relative;
-  bottom: 0;
-  left: 0;
-  background: #111;
-}
+/* 
 
 footer .foot-container {
   max-width: 1350px;
@@ -1380,7 +1374,7 @@ footer .foot-container {
   justify-content: space-between;
 }
 
-/*-*/
+/*-* /
 footer {
   width: 100%;
   position: relative;
@@ -1428,7 +1422,7 @@ footer .content .lower i,
 a {
   padding-right: 16px;
   color: #fff;
-  /* background-color: #fff; */
+  /* background-color: #fff; * /
 
 }
 
@@ -1559,4 +1553,4 @@ footer a:hover {
   footer .content .middle {
     padding-left: 0;
   }
-}
+} */
