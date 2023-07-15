@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cart</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart</title>
 
-  <link rel='stylesheet' type='text/css' media='screen' href='../public/css/navbar.css'>
-  <link rel='stylesheet' type='text/css' media='screen' href='../public/css/footer.css'>
+<link rel='stylesheet' type='text/css' media='screen' href='../css/navbar.css'>
+<link rel='stylesheet' type='text/css' media='screen' href='../css/footer.css'>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- for footer fontawesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
 </head>
 <style>
-  #btn {
-    color: #fff;
-    background-color: #bd316d;
-    border-color: #343a40;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  #main-cart-content {
+    box-shadow: 0 0 5px 5px rgb(224, 153, 172)
+  }
+
+  .cart-items {
+    max-height: 30vh;
+    padding: 0 1rem;
+    overflow: scroll;
   }
 
   @media (min-width: 1025px) {
@@ -36,7 +48,14 @@
   }
 
   .bg-grey {
-    background-color: #eae8e8;
+    background-color: #ffe1e1;
+  }
+
+  .select {
+    padding: 0.3rem;
+    border-radius: 10px;
+    background-color: #ffddeb;
+    font-weight: bold;
   }
 
   @media (min-width: 992px) {
@@ -63,7 +82,7 @@
         <div class="col-4">
           <div class="logoday2" style="margin-left:-1.2rem;">
             <!-- <img src="img/logo2.png" alt="" width="90" height="50"> -->
-            <img src="../public/images/img/cbbb.png" alt width="150" height="50">
+            <img src="../images/img/cbbb.png" alt width="150" height="50">
 
           </div>
         </div>
@@ -94,112 +113,46 @@
     </div>
   </nav>
 
-  <section class="h-custom" style="background-color: #ffddeb">
-    <div class="container py-5 h-100">
+  <section style="background-color: #ffddeb">
+    <div class="container py-5">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12">
-          <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+          <div class="card card-registration card-registration-2" id="main-cart-content" style="border-radius: 15px;">
             <div class="card-body p-0">
               <div class="row g-0">
                 <div class="col-lg-8">
                   <div class="p-5">
                     <div class="d-flex justify-content-between align-items-center mb-5">
-                      <h1 class="fw-bold mb-0 text-black">Shopping
-                        Cart</h1>
-                      <h6 class="mb-0 text-muted">3
-                        items</h6>
-                    </div>
-                    <hr class="my-4">
-
-                    <div class="row mb-4 d-flex justify-content-between align-items-center">
-                      <div class="col-md-2 col-lg-2 col-xl-2">
-                        <img src="../public/images/cake1.jpg" class="img-fluid rounded-3" alt="Cotton T-shirt">
-                      </div>
-                      <div class="col-md-3 col-lg-3 col-xl-3">
-                        <h6 class="text-muted">Shirt</h6>
-                        <h6 class="text-black mb-0">Cotton
-                          T-shirt</h6>
-                      </div>
-                      <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                        <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                          <i class="fas fa-minus"></i>
-                        </button>
-
-                        <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm" />
-
-                        <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                          <i class="fas fa-plus"></i>
-                        </button>
-                      </div>
-                      <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h6 class="mb-0">Rs 544.00</h6>
-                      </div>
-                      <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
-                      </div>
+                      <h1 class="fw-bold mb-0 text-black">Your Cart</h1>
+                      <h6 class="mb-0 text-muted"><%= basketItems.length %> items</h6>
                     </div>
 
-                    <hr class="my-4">
 
-                    <div class="row mb-4 d-flex justify-content-between align-items-center">
-                      <div class="col-md-2 col-lg-2 col-xl-2">
-                        <img src="../public/images/cake2.jpg" class="img-fluid rounded-3" alt="Cotton T-shirt">
+                    <!-- object of interest -->
+                    <div class="cart-items">
+                      <% basketItems.forEach(item => { %>
+                      <hr class="my-4">
+                      <div class="row mb-4 d-flex justify-content-between align-items-center">
+                        <div class="col-md-2 col-lg-2 col-xl-2">
+                          <img src="<%= item.thumbnailUrl %>" class="img-fluid rounded-3" alt="cake">
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                          <h6 class="text-muted">Cake</h6>
+                          <h6 class="text-black mb-0"><%= item.cakeName %></h6>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                          <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm" readonly />
+                        </div>
+                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                          <h6 class="mb-0">Rs <%= item.price %></h6>
+                        </div>
                       </div>
-                      <div class="col-md-3 col-lg-3 col-xl-3">
-                        <h6 class="text-muted">Cake</h6>
-                        <h6 class="text-black mb-0">Chocolate
-                          cake</h6>
-                      </div>
-                      <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                        <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                          <i class="fas fa-minus"></i>
-                        </button>
-
-                        <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm" />
-
-                        <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                          <i class="fas fa-plus"></i>
-                        </button>
-                      </div>
-                      <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h6 class="mb-0">Rs. 244.00</h6>
-                      </div>
-                      <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
-                      </div>
+                      <hr class="my-4">
+                      <% }); %>
                     </div>
 
-                    <hr class="my-4">
+                    <!-- ooooooooooooooooooooooooo -->
 
-                    <div class="row mb-4 d-flex justify-content-between align-items-center">
-                      <div class="col-md-2 col-lg-2 col-xl-2">
-                        <img src="../public/images/cake3.jpg" class="img-fluid rounded-3" alt="Cotton T-shirt">
-                      </div>
-                      <div class="col-md-3 col-lg-3 col-xl-3">
-                        <h6 class="text-muted">Cake</h6>
-                        <h6 class="text-black mb-0">Vanilla
-                          Cake</h6>
-                      </div>
-                      <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                        <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                          <i class="fas fa-minus"></i>
-                        </button>
-
-                        <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm" />
-
-                        <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                          <i class="fas fa-plus"></i>
-                        </button>
-                      </div>
-                      <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h6 class="mb-0">Rs 344.00</h6>
-                      </div>
-                      <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
-                      </div>
-                    </div>
-
-                    <hr class="my-4">
 
                     <div class="pt-5">
                       <h6 class="mb-0"><a href="#!" class="text-body"><i class="fas fa-long-arrow-alt-left me-2"></i>Back
@@ -207,49 +160,44 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-4 bg-grey">
-                  <div class="p-5">
+
+                <% let totalItemsPrice = 0;
+                    basketItems.forEach(item => {
+                    totalItemsPrice += item.price;
+                    });
+                %>
+
+                <div class="col-lg-4">
+                  <div class="p-5 bg-grey">
                     <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
                     <hr class="my-4">
 
                     <div class="d-flex justify-content-between mb-4">
-                      <h5 class="text-uppercase">items
-                        3</h5>
-                      <h5>Rs 332.00</h5>
+                      <h5 class="text-uppercase">items <%= basketItems.length %></h5>
+                      <h5><%= totalItemsPrice %></h5>
                     </div>
 
-                    <h5 class="text-uppercase mb-3">Shipping</h5>
+                    <h5 class="text-uppercase mb-3">Shipping Charges</h5>
 
                     <div class="mb-4 pb-2">
-                      <select class="select">
-                        <option value="1">Standard-Delivery-
-                          Rs 5.00</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                        <option value="4">Four</option>
+                      <select class="select" id="selectDelivery">
+                        <option value="" disabled selected hidden>Choose delivery style.</option>
+                        <option value="50">Standard-Delivery- Rs 50.00</option>
+                        <option value="80">2hrs-Delivery- Rs 80.00</option>
+                        <option value="110">30min-Delivery- Rs 110.00</option>
                       </select>
-                    </div>
-
-                    <h5 class="text-uppercase mb-3">Give
-                      code</h5>
-
-                    <div class="mb-5">
-                      <div class="form-outline">
-                        <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplea2">Enter
-                          your code</label>
-                      </div>
                     </div>
 
                     <hr class="my-4">
 
+
+
                     <div class="d-flex justify-content-between mb-5">
-                      <h5 class="text-uppercase">Total
-                        price</h5>
-                      <h5>Rs 137.00</h5>
+                      <h5 class="text-uppercase">Total price</h5>
+                      <h5 id="totalPrice">2566</h5>
                     </div>
 
-                    <button type="button" class="btn" id="btn">Register</button>
+                    <button type="button" class="btn btn-danger" id="btn">Confirm Order</button>
 
                   </div>
                 </div>
@@ -312,5 +260,20 @@
     </div>
   </footer>
 </body>
+
+<script>
+  const selectDelivery = document.getElementById("selectDelivery");
+const totalPriceElement = document.getElementById("totalPrice");
+
+selectDelivery.addEventListener("change", () => {
+  const deliveryCharge = parseInt(selectDelivery.value);
+  const totalItemsPrice = parseInt(`<%= totalItemsPrice %>`);
+  const totalPrice = totalItemsPrice + deliveryCharge;
+  totalPriceElement.textContent = totalPrice;
+});
+
+
+
+</script>
 
 </html>

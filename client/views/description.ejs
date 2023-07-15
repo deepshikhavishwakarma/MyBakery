@@ -9,6 +9,7 @@
   <!-- <link rel='stylesheet' type='text/css' media='screen' href='../styles/style2.css'> -->
   <link rel='stylesheet' type='text/css' href='../css/style2.css'>
   <link rel='stylesheet' type='text/css' href='../css/description.css'>
+  <link rel="stylesheet" href="../css/footer.css">
 
   <script src="../scripts/script2.js" defer></script>
 
@@ -103,30 +104,43 @@
               <ul>
                 <li><%=cake.CakeType%></li>
                 <li><%=cake.CakeSpeciality%></li>
+                <li>Sugar amount (avg) : <%=cake.CakeSugarAmount%>g</li>
               </ul>
             </div>
           </div>
           <div class="line"></div>
           <div class="right-content">
+            <div class="prices">
+              <h1>Rs <%=cake.Price - cake.Discount%></h1>
+              <h3><s>Rs <%=cake.Price%></s></h3>
+              <h5>Discount : <%= Math.floor((cake.Discount) / cake.Price * 100)  %>%</h5>
+            </div>
+
 
             <div class="offers">
               <ul class="list-group">
                 <li class="list-group-item list-group-item-primary">Offers available for you ❤️</li>
-                <li class="list-group-item list-group-item-success">A simple success list group item</li>
-                <li class="list-group-item list-group-item-success">A simple success list group item</li>
-                <li class="list-group-item list-group-item-success">A simple success list group item</li>
-                <li class="list-group-item list-group-item-success">A simple success list group item</li>
+                <li class="list-group-item list-group-item-success">💳 Extra 10Rs onspot cashback on HDFC card.</li>
+                <li class="list-group-item list-group-item-success">💵 Monsoon bakes extra 10Rs discount (price inclusive)</li>
+                <li class="list-group-item list-group-item-success">🎫 Buy 3 items get 10% off coupon for next purchase.</li>
               </ul>
             </div>
 
 
-            <div class="prices">
-              <h1><%=cake.Price - cake.Discount%></h1>
-              <h3><s><%=cake.Price%></s></h3>
-            </div>
-
             <div class="sub-btns">
-              <button type="button" class="btn btn-danger btn-lg">Add to Basket</button>
+              <form action="/addtocart/<%= cake.CakeName %>/<%=cake.Price - cake.Discount%>" class="CakeSelectForm" method="post">
+                <div class="sizes">
+                  <input type="text" style="display: none;" name="thumbnailUrl" value="<%= cake.CakeThumbNailImage.replace("../client", "..") %>">
+                  <label for="selectSize">Select Size</label>
+                  <select name="selectSize" id="selectSize">
+                    <option value="0">default +Rs 0</option>
+                    <option value="99">medium +Rs 99</option>
+                    <option value="129">large +Rs 129</option>
+                  </select>
+                </div>
+                
+                <button type="submit" class="btn btn-danger btn-lg">Add to Basket</button>
+              </form>
               <button type="button" class="btn btn-outline-danger btn-lg">Go Back</button>
             </div>
 
