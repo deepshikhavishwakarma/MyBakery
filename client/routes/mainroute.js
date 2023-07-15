@@ -3,6 +3,7 @@ const session = require("express-session");
 const router = express.Router();
 
 const Cake = require("./CakeSchema");
+const Order = require("./orderSchema");
 
 router.get("/", async (req, res) => {
     try {
@@ -31,7 +32,7 @@ router.get("/seeMore/:cakeName", async (req, res) => {
     }
 })
 
-router.get("/viewAll", async (req,res) => {
+router.get("/viewAll", async (req, res) => {
     try {
         const cakes = await Cake.find({}).exec();
         console.log("Fetched cakes without error");
@@ -67,9 +68,12 @@ router.post('/addtocart/:cakeName/:price', (req, res) => {
     res.redirect('/cart');
 });
 
+
 router.get('/cart', (req, res) => {
     const basketItems = req.session.basket || [];
     res.render('cart', { basketItems });
 });
+
+
 
 module.exports = router;
