@@ -61,7 +61,7 @@ footer {
   
   footer .content .lower i,
   a {
-    padding-right: 16px;
+   
     color: #fff;
     /* background-color: #fff; */
   
@@ -113,19 +113,19 @@ footer {
     width: 100%;
     font-size: 18px;
     color: #d9d9d9;
-    background: #eb2f06;
+    background: #dd2b60;
     outline: none;
-    border-radius: 5px;
+    border-radius: 42px;
     letter-spacing: 1px;
     cursor: pointer;
     margin-top: 12px;
-    border: 2px solid #eb2f06;
+    border: 1px solid #3b231d;
     transition: all 0.3s ease-in-out;
   }
   
   .content .right input[type="submit"]:hover {
     background: none;
-    color: #eb2f06;
+    color: #dd2b60;
   }
   
   footer .content .media-icons a {
@@ -140,11 +140,11 @@ footer {
     border: 2px solid #222222;
     margin: 30px 5px 0 0;
     transition: all 0.3s ease;
-    background: yellow;
+    /* background: yellow; */
   }
   
   .content .media-icons a:hover {
-    border-color: #eb2f06;
+    border-color: #dd2b60;
   }
   
   footer .bottom {
@@ -155,7 +155,7 @@ footer {
   }
   
   footer .bottom a {
-    color: #eb2f06;
+    color: #dd2b60;
   }
   
   footer a {
@@ -163,7 +163,7 @@ footer {
   }
   
   footer a:hover {
-    color: #eb2f06;
+    color: #dd2b60;
   }
   
   @media (max-width:1100px) {
