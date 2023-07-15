@@ -7,15 +7,16 @@ require("dotenv").config();
 
 //-----------------copyright deep's microsystem-----------------------//
 
-const port = 3000;
+const port = 4000;
 
 const app = express();
 
 //----------------------------------------------------------------------//
 
 const locale = "mongodb+srv://Deep:Mongo@cluster0.lqjmayx.mongodb.net/MyBakery";
+const uriLocal = "mongodb://localhost:27017/cakeDB";
 
-mongoose.connect(locale, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(uriLocal, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("successfully connected to your MongoDB database."))
     .catch((error, req, res) => {
         console.log(error)
@@ -48,6 +49,7 @@ const adminCake = require("./routes/adminCake");
 app.use(adminCake);
 
 //---------------------- port --------------------------------//
-app.listen(`${port}` || 3000, () => {
+app.listen(`${port}` || 4000, () => {
     console.log("Server has started successfully on port " + `${port}`);
+    console.log(`app listing on port http://localhost:${port}`);
 });

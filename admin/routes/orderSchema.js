@@ -8,7 +8,8 @@ const orderSchema = new mongoose.Schema({
     SpecialDemands: { type: String, required:true },
     DeliveryAddress: { type: String, required:true },
     ContactNumber: { type: Number, required:true },
-    OrderStatus: { type: String, required:true, default:"pending" }
+    OrderStatus: { type: String, required:true, default:"pending" },
+    OrderDate : {type: Date, required:true}
 })
 
 module.exports = mongoose.model('Order', orderSchema);

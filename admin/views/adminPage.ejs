@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../css/basicCss.css">
   <script src="../scripts/adminfront.js"></script>
 
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </head>
@@ -16,16 +17,21 @@
   <div class="main-content">
     <div class="right-side">
       <div class="right-top">
-        <button type="button" class="btn btn-success" style="margin: 0 0.5rem;" onclick="refresh()">Refresh Page</button>
-        <button type="button" class="btn btn-info" style="margin: 0 0.5rem;" onclick="showOrders()">Orders</button>
-        <button type="button" class="btn btn-primary" style="margin: 0 0.5rem;" onclick="createnewCake()">Add Cake</button>
-        <button type="button" class="btn btn-primary" style="margin: 0 0.5rem;" onclick="updateCake()">Update/View Cakes</button>
-        <button type="button" class="btn btn-primary" style="margin: 0 0.5rem;" onclick="showEarnings()">View Earnings</button>
-        <a href="/logout" class="btn btn-danger" style="margin: 0 0.5rem;">Logout</a>
+        <div class="logo">
+          <img src="../images/cbbb.png" alt="logo">
+        </div>
+        <div class="buttons-area">
+          <button type="button" class="btn btn-success" style="margin: 0 0.5rem;" onclick="refresh()">Refresh Page</button>
+          <button type="button" class="btn btn-info" style="margin: 0 0.5rem;" onclick="showOrders()">Orders</button>
+          <button type="button" class="btn btn-primary" style="margin: 0 0.5rem;" onclick="createnewCake()">Add Cake</button>
+          <button type="button" class="btn btn-primary" style="margin: 0 0.5rem;" onclick="updateCake()">Update/View Cakes</button>
+          <button type="button" class="btn btn-primary" style="margin: 0 0.5rem;" onclick="showEarnings()">View Earnings</button>
+          <a href="/logout" class="btn btn-danger" style="margin: 0 0.5rem;">Logout</a>
+        </div>
       </div>
       <div class="right-bottom">
-
         <div id="orders">
+          <input type="text" id="searchOrdersInput" placeholder="Search by Customer Name, Order ID, or Contact Number">
 
           <table style="width:100%" class="table">
             <tr class="table-info">
@@ -60,16 +66,16 @@
             <div class="form-left">
               <label for="cakeName">Cake Name:</label>
               <input type="text" id="cakeName" name="cakeName" required placeholder="Enter the cake name">
-  
+
               <label for="cakeDescription">Cake Description:</label>
               <textarea id="cakeDescription" name="cakeDescription" required placeholder="Enter the cake description"> </textarea>
-  
+
               <label for="cakeSugarAmount">Cake Sugar Amount (g) :</label>
               <input type="number" id="cakeSugarAmount" name="cakeSugarAmount" required placeholder="Enter the sugar amount">
-  
+
               <label for="cakeType">Cake Type:</label>
               <input type="text" id="cakeType" name="cakeType" required placeholder="Enter the cake type">
-  
+
               <label for="price">Price:</label>
               <input type="number" id="price" name="price" required placeholder="Enter the cake price">
             </div>
@@ -80,13 +86,13 @@
 
               <label for="cakeDescription">Something Special:</label>
               <textarea id="cakeDescription" name="cakeSpeciality" required placeholder="Enter anyting special about the cake."> </textarea>
-  
+
               <label for="thumbnailImage">Thumbnail Image:</label>
               <input class="btn btn-danger" type="file" id="thumbnailImage" name="thumbnailImage" required>
-  
+
               <label for="imagePaths">Carousel Images:</label>
               <input class="btn btn-danger" type="file" id="imagePaths" name="imagePaths" multiple required>
-  
+
               <button type="submit" class="btn btn-primary">Create Cake</button>
             </div>
 
@@ -96,68 +102,88 @@
         <!--Update cake-->
 
         <div id="updateCake">
-          <table class="table">
-            <tr class="table-info">
-              <th>CakeID</th>
-              <th>Cake Name</th>
-              <th>Cake description</th>
-              <th>Cake sygar amount</th>
-              <th>Cake type</th>
-              <th>Speciality</th>
-              <th>Cake Price</th>
-              <th>Discount</th>
-              <th>Update</th>
-              <th>Delete</th>
-            </tr>
-            <tr>
-              <td>Alfreds Futterkiste</td>
-              <td>
-                Maria Anders
-                <input type="text">
-              </td>
-              <td>
-                Maria Anders
-                <input type="text">
-              </td>
-              <td>
-                Maria Anders
-                <input type="text">
-              </td>
-              <td>
-                Maria Anders
-                <input type="text">
-              </td>
-              <td>
-                Maria Anders
-                <input type="text">
-              </td>
-              <td>
-                Maria Anders
-                <input type="text">
-              </td>
-              <td>
-                Maria Anders
-                <input type="text">
-              </td>
-              <td><a href="" class="btn btn-success">Update</a></td>
-              <td><a href="" class="btn btn-danger">delete</a></td>
-            </tr>
-          </table>
+          <input type="text" id="searchCakesInput" placeholder="Search by Cake ID or Cake Name">
+          <div class="tableArea">
+            <table class="table">
+              <tr class="table-info">
+                <th>CakeID</th>
+                <th>Cake Name</th>
+                <th>Cake description</th>
+                <th>Cake sygar amount</th>
+                <th>Cake type</th>
+                <th>Speciality</th>
+                <th>Cake Price</th>
+                <th>Discount</th>
+                <th>Update</th>
+                <th>Delete</th>
+              </tr>
+              <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>
+                  Maria Anders
+                  <input type="text">
+                </td>
+                <td>
+                  Maria Anders
+                  <input type="text">
+                </td>
+                <td>
+                  Maria Anders
+                  <input type="text">
+                </td>
+                <td>
+                  Maria Anders
+                  <input type="text">
+                </td>
+                <td>
+                  Maria Anders
+                  <input type="text">
+                </td>
+                <td>
+                  Maria Anders
+                  <input type="text">
+                </td>
+                <td>
+                  Maria Anders
+                  <input type="text">
+                </td>
+                <td><a href="" class="btn btn-success">Update</a></td>
+                <td><a href="" class="btn btn-danger">delete</a></td>
+              </tr>
+            </table>
+          </div>
         </div>
 
 
         <div id="earnings">
-          <div class="blocks">
-            <h1>Total sales</h1>
-            <p>1500 units</p>
-          </div>
-          <div class="blocks">
-            <h1>sales amount</h1>
-            <p>Rs 100000</p>
-          </div>
-          <div class="blocks">
-            <h1>Profit</h1>
-            <p>Rs 50000</p>
+          <div class="block-area">
+            <div class="blocks">
+              <h1>Total sales</h1>
+              <p>1500 units</p>
+            </div>
+            <div class="blocks">
+              <h1>sales amount</h1>
+              <p>Rs 100000</p>
+            </div>
+            <div class="blocks">
+              <h1>Profit</h1>
+              <p>Rs 50000</p>
+            </div>
+            <div class="blocks">
+              <h1>Today's Sales</h1>
+              <p>Rs 5000</p>
+            </div>
+
+            <div class="blocks">
+              <h1>average order value</h1>
+              <p>Rs 500</p>
+            </div>
+
+            <div class="blocks">
+              <h1>Today's earnings</h1>
+              <p>Rs 500</p>
+            </div>
+
           </div>
         </div>
 
@@ -166,5 +192,48 @@
   </div>
 
 </body>
+
+<script>
+  const searchOrdersInput = document.getElementById("searchOrdersInput");
+  const ordersRows = document.querySelectorAll("table tbody tr");
+
+  searchOrdersInput.addEventListener("input", function() {
+    const searchValue = this.value.toLowerCase();
+
+    ordersRows.forEach(function(row) {
+      const customerName = row.cells[0].textContent.toLowerCase();
+      const orderID = row.cells[3].textContent.toLowerCase();
+      const contactNumber = row.cells[5].textContent.toLowerCase();
+
+      if (
+        customerName.includes(searchValue) ||
+        orderID.includes(searchValue) ||
+        contactNumber.includes(searchValue)
+      ) {
+        row.style.display = "table-row";
+      } else {
+        row.style.display = "none";
+      }
+    });
+  });
+
+  const searchCakesInput = document.getElementById("searchCakesInput");
+  const cakesRows = document.querySelectorAll(".tableArea table tbody tr");
+
+  searchCakesInput.addEventListener("input", function() {
+    const searchValue = this.value.toLowerCase();
+
+    cakesRows.forEach(function(row) {
+      const cakeID = row.cells[0].textContent.toLowerCase();
+      const cakeName = row.cells[1].textContent.toLowerCase();
+
+      if (cakeID.includes(searchValue) || cakeName.includes(searchValue)) {
+        row.style.display = "table-row";
+      } else {
+        row.style.display = "none";
+      }
+    });
+  });
+</script>
 
 </html>
