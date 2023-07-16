@@ -18,10 +18,14 @@ body {
 .right-top {
     /* border: 2px solid green; */
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background-color: #F4DFD0;
+    padding: 0.3rem;
+    background-color: #f7d4e5;
+}
+
+.logo img{
+    width: 200px;
 }
 
 .right-bottom{
@@ -120,24 +124,38 @@ label{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* border: 2px solid red; */
+    /* border: 2px solid rgb(68, 68, 68); */
     width: 33%;
-    background-color: #f3f5c5;
+    background-color: #dcf6fb;
     border-radius: 1rem;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px 5px grey;
 }
 
 #earnings{
     display: none;
 }
 
+.blocks{
+    max-width: 400px;
+}
+
+.block-area{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
 .blocks h1{
     width: 100%;
-    background-color: brown;
+    background-color: rgb(42, 52, 165);
     color: white;
     margin: 0;
     border-radius: 1rem 1rem 0 0;
     text-align: center;
-    padding: 0.5rem 0;
+    padding: 1rem 0;
+    font-size: 1.5rem;
 }
 
 .blocks p{
@@ -147,7 +165,35 @@ label{
 
 #updateCake{
     display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.tableArea{
+    scale: 80%;
+}
+
+td input{
+    border: 2px solid #0020d4;
+    border-radius: 10px;
+}
+
+#searchCakesInput{
+    width: 50%;
+    padding: 0.5rem;
+    border: 2px solid #e8135e;
+    border-radius: 10px;
+}
+
+#searchOrdersInput{
+    width: 50%;
+    padding: 0.5rem;
+    border: 2px solid #e8135e;
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+.tableArea td{
+    font-weight: bold;
+}

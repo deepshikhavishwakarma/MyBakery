@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+</head>
+<style>
+    html, body{
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #ffd4dc;
+    }
+    .container{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 80vh;
+    }
+    h1{
+        font-size: 4rem;
+        color: brown;
+    }
+    h2{
+        font-size: 2rem;
+    }
+    h3{
+        font-size: 1.5rem;
+    }
+    .contact{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+    }
+    h4{
+        font-size: 1.2rem;
+        color: #ffffff;
+        background-color: rgb(162, 0, 68);
+        padding: 1rem 1.5rem; 
+        border-radius: 5rem;
+    }
+
+    h4:hover{
+        box-shadow: 0 0 5px 5px rgb(255, 0, 43);
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="../public/images/img/errorGif.gif" alt="errorgif">
+        </div>
+        <div class="right">
+            <h1>:( <%= code %>></h1>
+            <h2><%= Type %>></h2>
+            <h3><%= message %></h3>
+        </div>
+    </div>
+    <div class="contact">
+        <h4>Contact us : +91 1234567892</h4>
+        <h4>Email : contact@cakebake.com</h4>
+        <h4>Phone Orders : +91 9874563211</h4>
+    </div>
+</body>
+</html>

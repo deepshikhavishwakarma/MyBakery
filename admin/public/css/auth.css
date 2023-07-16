@@ -11,7 +11,7 @@ body {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px 10px #0000001a;
 }
 
 .form-group {
@@ -68,4 +68,15 @@ body {
     font-weight: bold;
     margin-bottom: 20px;
     color: #FF2171;
+}
+
+.logo-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.auth-logo{
+    width: 150px;
 }

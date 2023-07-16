@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart</title>
+
+<link rel='stylesheet' type='text/css' media='screen' href='../css/navbar.css'>
+<link rel='stylesheet' type='text/css' media='screen' href='../css/footer.css'>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- for footer fontawesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+
+
+</head>
+<style>
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  #main-cart-content {
+    box-shadow: 0 0 5px 5px rgb(224, 153, 172)
+  }
+
+  .cart-items {
+    max-height: 30vh;
+    padding: 0 1rem;
+    overflow: scroll;
+  }
+
+  @media (min-width: 1025px) {
+    .h-custom {
+      height: 130vh !important;
+    }
+
+  }
+
+  .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+  }
+
+  .card-registration .select-arrow {
+    top: 13px;
+  }
+
+  .bg-grey {
+    background-color: #ffe1e1;
+  }
+
+  .select {
+    padding: 0.3rem;
+    border-radius: 10px;
+    background-color: #ffddeb;
+    font-weight: bold;
+  }
+
+  @media (min-width: 992px) {
+    .card-registration-2 .bg-grey {
+      border-top-right-radius: 16px;
+      border-bottom-right-radius: 16px;
+    }
+  }
+
+
+  @media (max-width: 991px) {
+    .card-registration-2 .bg-grey {
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+    }
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-light sticky-top transparent">
+    <div class="container-fluid">
+      <div class="row2">
+        <!-- <div class="col-lg-4 col-sm-12 col-xs-12"> -->
+        <div class="col-4">
+          <div class="logoday2" style="margin-left:-1.2rem;">
+            <!-- <img src="img/logo2.png" alt="" width="90" height="50"> -->
+            <img src="../images/img/cbbb.png" alt width="150" height="50">
+
+          </div>
+        </div>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-hidden="true">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active ">
+            <a class="nav-link" href="#Home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#aboutus">AboutUs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Product">Products</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#team">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section style="background-color: #ffddeb">
+    <div class="container py-5">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12">
+          <div class="card card-registration card-registration-2" id="main-cart-content" style="border-radius: 15px;">
+            <div class="card-body p-0">
+              <div class="row g-0">
+                <div class="col-lg-8">
+                  <div class="p-5">
+                    <div class="d-flex justify-content-between align-items-center mb-5">
+                      <h1 class="fw-bold mb-0 text-black">Your Cart</h1>
+                      <h6 class="mb-0 text-muted"><%= basketItems.length %> items</h6>
+                    </div>
+
+
+                    <!-- object of interest -->
+                    <div class="cart-items">
+                      <% basketItems.forEach(item => { %>
+                      <hr class="my-4">
+                      <div class="row mb-4 d-flex justify-content-between align-items-center">
+                        <div class="col-md-2 col-lg-2 col-xl-2">
+                          <img src="<%= item.thumbnailUrl %>" class="img-fluid rounded-3" alt="cake">
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                          <h6 class="text-muted">Cake</h6>
+                          <h6 class="text-black mb-0"><%= item.cakeName %></h6>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                          <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm" readonly />
+                        </div>
+                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                          <h6 class="mb-0">Rs <%= item.price %></h6>
+                        </div>
+                      </div>
+                      <hr class="my-4">
+                      <% }); %>
+                    </div>
+
+                    <!-- ooooooooooooooooooooooooo -->
+
+
+                    <div class="pt-5">
+                      <h6 class="mb-0"><a href="#!" class="text-body"><i class="fas fa-long-arrow-alt-left me-2"></i> &nbsp; Back to shop</a></h6>
+                    </div>
+                  </div>
+                </div>
+
+                <% let totalItemsPrice = 0;
+                    basketItems.forEach(item => {
+                    totalItemsPrice += item.price;
+                    });
+                %>
+
+                <div class="col-lg-4">
+                  <div class="p-5 bg-grey">
+                    <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                    <hr class="my-4">
+
+                    <div class="d-flex justify-content-between mb-4">
+                      <h5 class="text-uppercase">items <%= basketItems.length %></h5>
+                      <h5><%= totalItemsPrice %></h5>
+                    </div>
+
+                    <h5 class="text-uppercase mb-3">Shipping Charges</h5>
+
+                    <div class="mb-4 pb-2">
+                      <select class="select" id="selectDelivery">
+                        <option value="" disabled selected hidden>Choose delivery style.</option>
+                        <option value="50">Standard-Delivery- Rs 50.00</option>
+                        <option value="80">2hrs-Delivery- Rs 80.00</option>
+                        <option value="110">30min-Delivery- Rs 110.00</option>
+                      </select>
+                    </div>
+
+                    <hr class="my-4">
+
+
+
+                    <div class="d-flex justify-content-between mb-5">
+                      <h5 class="text-uppercase">Total price</h5>
+                      <h5 id="totalPrice"><%= totalItemsPrice + 50 %></h5>
+                    </div>
+
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#orderModal">Proceed</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="orderModalLabel">Enter details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Order Form -->
+
+          <form>
+            <div class="form-group">
+              <label for="customerName">Customer Name</label>
+              <input type="text" class="form-control" id="customerName" placeholder="Enter customer name" required>
+            </div>
+            <div class="form-group">
+              <label for="specialDemands">Special Demands</label>
+              <input type="text" class="form-control" id="specialDemands" placeholder="Enter special demands">
+            </div>
+            <div class="form-group">
+              <label for="deliveryAddress">Delivery Address</label>
+              <input type="text" class="form-control" id="deliveryAddress" placeholder="Enter delivery address" required>
+            </div>
+            <div class="form-group">
+              <label for="contactNumber">Contact Number</label>
+              <input type="number" class="form-control" id="contactNumber" placeholder="Enter contact number" required>
+            </div>
+            <div class="form-group">
+              <label for="contactNumber">Order Total (Rs)</label>
+              <input type="number" class="form-control" id="orderValue" required readonly>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Confirm Order</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer>
+    <div class="content">
+      <div class="left box">
+        <div class="upper">
+          <div class="topic">About us</div>
+          <p>We make delicious, tasty,100%pure, Hygienic Cakes for
+            Every occasions.</p>
+        </div>
+        <div class="lower">
+          <div class="topic">Contact us</div>
+          <div class="topic-name">
+            <a href="#"><i class="fas fa-phone-volume"></i>
+              +8718048503</a>
+          </div>
+          <div class="topic-name">
+            <a href="#"><i class="fas fa-envelope"></i>
+              deepshikha2000deep@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="middle box">
+        <div class="topic">Our Services</div>
+        <div class="topic-name"><a href="#">Birthday Cakes</a></div>
+        <div class="topic-name"><a href="#">Anniversary Cakes</a></div>
+        <div class="topic-name"><a href="#">Wedding Ceremony Cakes</a></div>
+        <div class="topic-name"><a href="#">Kitty Parties Cake</a></div>
+        <div class="topic-name"><a href="#">Event Organizer</a></div>
+        <div class="topic-name"><a href="#">Customized Party Planner</a></div>
+      </div>
+      <div class="right box">
+        <div class="topic">Subscribe us</div>
+        <form action="#">
+          <input type="text" placeholder="Enter email address">
+          <input type="submit" name value="Send">
+          <div class="media-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <p>Copyright © <%= new Date().getFullYear() %> <a href="#">Cake Bake</a> All rights
+        reserved</p>
+    </div>
+  </footer>
+</body>
+
+<script>
+  const selectDelivery = document.getElementById("selectDelivery");
+  const totalPriceElement = document.getElementById("totalPrice");
+  const finalOrder = document.getElementById("orderValue");
+
+  selectDelivery.addEventListener("change", () => {
+    const deliveryCharge = parseInt(selectDelivery.value);
+    const totalItemsPrice = parseInt(`<%= totalItemsPrice %>`);
+    const totalPrice = totalItemsPrice + deliveryCharge;
+    totalPriceElement.textContent = totalPrice;
+    finalOrder.value = totalPrice;
+  });
+</script>
+
+</html>

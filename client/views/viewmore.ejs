@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Menu</title>
+  <link rel="stylesheet" href="../css/viewmore.css">
+  <link rel="stylesheet" href="../css/style2.css">
+  <!-- <link rel="stylesheet" href="../css/menu.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</head>
+
+<style>
+
+</style>
+
+<body>
+
+  <!-- header -->
+  <nav class="navbar navbar-expand-md navbar-light sticky-top transparent">
+    <div class="container-fluid">
+      <div class="row2">
+        <!-- <div class="col-lg-4 col-sm-12 col-xs-12"> -->
+        <div class="col-4">
+          <div class="logoday2" style="margin-left:-1.2rem;">
+            <!-- <img src="img/logo2.png" alt="" width="90" height="50"> -->
+            <img src="../images/logo.jpg" alt="" width="150" height="50">
+
+          </div>
+        </div>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-hidden="true">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active ">
+            <a class="nav-link" href="#Home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#aboutus">AboutUs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Product">Products</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#team">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- header -->
+
+  <div class="search">
+    <h2>Try out our delicious menu...</h2>
+    <input type="search" name="" id="searchbar" placeholder="Search for cakes...">
+  </div>
+  <section class="cakearea">
+
+    <% for (let i = 0; i < cakes.length; i++) { %>
+    <div class="card" style="width: 18rem; background-color: #FFD1D1; scale: 90%; padding:5px; border-radius:10px;">
+      <img src="<%= cakes[i].CakeThumbNailImage.replace("../client", "..") %>" class="card-img-top" style="border-radius: 10px;" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= cakes[i].CakeName %></h5>
+        <span class="price-btn">
+          <a href="/seeMore/<%= cakes[i].CakeName %>" class="btn btn-danger">View Cake</a>
+          <p class="card-text" style="font-size: 2rem;">Rs <%= cakes[i].Price - cakes[i].Discount %></p>
+        </span>
+      </div>
+    </div>
+    <% } %>
+
+  </section>
+
+  <section class="last-text">
+    <h3>Hold on! We are baking more...</h3>
+  </section>
+  <!-- footer -->
+</body>
+
+<script>
+  const searchInput = document.getElementById('searchbar');
+  const cakeCards = document.getElementsByClassName('card');
+
+  searchInput.addEventListener('input', function() {
+    const searchTerm = searchInput.value.toLowerCase();
+
+    for (let i = 0; i < cakeCards.length; i++) {
+      const cakeName = cakeCards[i].querySelector('.card-title').textContent.toLowerCase();
+
+      if (cakeName.includes(searchTerm)) {
+        cakeCards[i].style.display = 'block';
+      } else {
+        cakeCards[i].style.display = 'none';
+      }
+    }
+  });
+</script>
+
+</html>

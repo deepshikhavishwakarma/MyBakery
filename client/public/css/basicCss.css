@@ -3,6 +3,10 @@ body {
     margin: 0;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .main-content {
     display: flex;
 }
@@ -23,7 +27,7 @@ body {
     align-items: center;
 }
 
-.right-bottom{
+.right-bottom {
     padding: 1rem;
 }
 
@@ -40,11 +44,11 @@ td {
     border-collapse: collapse;
 }
 
-th{
+th {
     background-color: blanchedalmond;
 }
 
-form{
+form {
     border: 2px solid rgb(28, 234, 124);
     padding: 1rem;
     display: flex;
