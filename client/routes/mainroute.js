@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
         res.render("mainpage", { cakes });
     } catch (err) {
         console.error('Error fetching data:', err);
-        // res.render("errorpage"); 
+        res.render("errorPage", { code: "504", message: "Page Unavailable", Type:"Connection Timeout." }); 
     }
 });
 
@@ -28,7 +28,7 @@ router.get("/seeMore/:cakeName", async (req, res) => {
         res.render("description", { cake });
     } catch (err) {
         console.error('Error fetching data:', err);
-        // res.render("errorpage");
+        res.render("errorPage", { code: "404", message: "Item Not found or has been removed.", Type:"Internal Error." });
     }
 })
 
@@ -41,7 +41,7 @@ router.get("/viewAll", async (req, res) => {
         res.render("viewmore", { cakes });
     } catch (err) {
         console.error('Error fetching data:', err);
-        // res.render("errorpage"); 
+        res.render("errorPage", { code: "503", message: "Something Went wrong on our end. We are trying to fix it.", Type:"Database Error" });
     }
 })
 

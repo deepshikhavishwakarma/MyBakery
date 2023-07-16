@@ -20,7 +20,6 @@ mongoose.connect(uriLocal, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("successfully connected to your MongoDB database."))
     .catch((error, req, res) => {
         console.log(error)
-        // res.render("errorPage", { code: "503", message: "SERVICE UNAVAILABLE" });
     })
 
 
